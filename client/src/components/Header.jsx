@@ -29,7 +29,7 @@ export default function Header() {
             <Link to="/about">About</Link>
           </li>
           <li className="text-gray-200 hover:text-indigo-400 font-medium transition duration-300">
-            <Link to="/signin">Sign in</Link>
+            <Link to="/sign-in">Sign in</Link>
           </li>
         </ul>
       </div>

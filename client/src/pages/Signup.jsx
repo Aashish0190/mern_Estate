@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-
 export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -25,7 +26,6 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      console.log(data);
       if (data.success === false) {
         setLoading(false);
         setError(data.message);
@@ -39,47 +39,57 @@ export default function SignUp() {
       setError(error.message);
     }
   };
-  return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Sign Up</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input
-          type='text'
-          placeholder='username'
-          className='border p-3 rounded-lg'
-          id='username'
-          onChange={handleChange}
-        />
-        <input
-          type='email'
-          placeholder='email'
-          className='border p-3 rounded-lg'
-          id='email'
-          onChange={handleChange}
-        />
-        <input
-          type='password'
-          placeholder='password'
-          className='border p-3 rounded-lg'
-          id='password'
-          onChange={handleChange}
-        />
 
-        <button
-          disabled={loading}
-          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
-        >
-          {loading ? 'Loading...' : 'Sign Up'}
-        </button>
-        
-      </form>
-      <div className='flex gap-2 mt-5'>
-        <p>Have an account?</p>
-        <Link to={'/sign-in'}>
-          <span className='text-blue-700'>Sign in</span>
-        </Link>
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-blue-300">
+      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h1 className="text-4xl font-extrabold text-gray-800 text-center mb-6">
+          Create Account
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              className="w-full bg-gray-50 text-gray-700 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              id="email"
+              className="w-full bg-gray-50 text-gray-700 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              className="w-full bg-gray-50 text-gray-700 border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-md disabled:bg-gray-400"
+          >
+            {loading ? 'Signing Up...' : 'Sign Up'}
+          </button>
+        </form>
+        <div className="mt-6 text-center">
+          <p className="text-gray-600">Already have an account?</p>
+          <Link to="/sign-in" className="text-purple-600 hover:text-purple-800 font-medium">
+            Sign In
+          </Link>
+        </div>
+        {error && <p className="text-red-500 text-center mt-4">{error}</p>}
       </div>
-      {error && <p className='text-red-500 mt-5'>{error}</p>}
     </div>
   );
 }

@@ -2,9 +2,9 @@ import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
 export default function Header() {
-  const {currentUser} = useSelector(state => state.user)
+  const { currentuser } = useSelector(state => state.user); // Correct spelling for currentUser
+
   return (
     <header className="bg-gradient-to-r from-teal-500 via-blue-700 to-blue-900 shadow-lg">
       <div className="flex justify-between items-center max-w-7xl mx-auto p-4 flex-wrap">
@@ -25,26 +25,27 @@ export default function Header() {
         </form>
 
         <ul className="flex gap-6 mt-4 sm:mt-0 items-center">
-        <Link to="/">
-          <li className="text-gray-200 hover:text-indigo-400 font-medium transition duration-300">
-            Home
-          </li>
+          <Link to="/">
+            <li className="text-gray-200 hover:text-indigo-400 font-medium transition duration-300">
+              Home
+            </li>
           </Link>
           <Link to="/about">
-          <li className="text-gray-200 hover:text-indigo-400 font-medium transition duration-300">
-            About
-          </li>
+            <li className="text-gray-200 hover:text-indigo-400 font-medium transition duration-300">
+              About
+            </li>
           </Link>
-         
-          <Link to='/profile'>
-            {currentUser ? (
+
+          {/* Conditional rendering for Profile or Sign-in */}
+          <Link to={currentuser ? '/profile' : '/sign-in'}>
+            {currentuser ? (
               <img
-                className='rounded-full h-7 w-7 object-cover'
-                src={currentUser.avatar}
-                alt='profile'
+                className="rounded-full h-7 w-7 object-cover"
+                src={currentuser.avatar}  // Make sure avatar exists in user object
+                alt="profile"
               />
             ) : (
-              <li className='text-gray-200 hover:text-indigo-400 font-medium transition duration-300'> Sign in</li>
+              <li className="text-gray-200 hover:underline">Sign in</li>
             )}
           </Link>
         </ul>

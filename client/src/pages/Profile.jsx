@@ -222,7 +222,7 @@ const handleListingDelete = async (listingId) => {
         >
           Delete account
         </span>
-        <span onClick={handleSignout} className='text-red-700'>Sign out</span>
+        <span onClick={handleSignout} className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>

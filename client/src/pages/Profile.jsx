@@ -142,25 +142,6 @@ const handleShowListings = async () => {
   }
 };
 
-const handleListingDelete = async (listingId) => {
-  try {
-    const res = await fetch(`/api/listing/delete/${listingId}`, {
-      method: 'DELETE',
-    });
-    const data = await res.json();
-    if (data.success === false) {
-      console.log(data.message);
-      return;
-    }
-
-    setUserListings((prev) =>
-      prev.filter((listing) => listing._id !== listingId)
-    );
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
@@ -222,7 +203,7 @@ const handleListingDelete = async (listingId) => {
         >
           Delete account
         </span>
-        <span onClick={handleSignout} className='text-red-700 cursor-pointer'>Sign out</span>
+        <span onClick={handleSignout} className='text-red-700'>Sign out</span>
       </div>
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>

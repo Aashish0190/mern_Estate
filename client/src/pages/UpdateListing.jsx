@@ -54,6 +54,7 @@ export default function CreateListing() {
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
+      console.log(e)
 
       for (let i = 0; i < files.length; i++) {
         promises.push(storeImage(files[i]));
@@ -70,6 +71,7 @@ export default function CreateListing() {
         .catch((err) => {
           setImageUploadError('Image upload failed (2 mb max per image)');
           setUploading(false);
+          console.log(err)
         });
     } else {
       setImageUploadError('You can only upload 6 images per listing');

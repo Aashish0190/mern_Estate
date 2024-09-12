@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function About() {
   return (
@@ -15,7 +15,7 @@ export default function About() {
           <div className="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
             <h2 className="text-2xl font-semibold mb-4 text-slate-800">Our Mission</h2>
             <p className="text-gray-700">
-              We aim to assist our clients in reaching their real estate goals by offering expert advice, personalized services, and a deep understanding of the local market. Whether buying, selling, or renting, we're with you every step of the way.
+              We aim to assist our clients in reaching their real estate goals by offering expert advice, personalized services, and a deep understanding of the local market. Whether buying, selling, or renting, we are with you every step of the way.
             </p>
           </div>
           <div className="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
@@ -27,7 +27,7 @@ export default function About() {
           <div className="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
             <h2 className="text-2xl font-semibold mb-4 text-slate-800">Expert Team</h2>
             <p className="text-gray-700">
-              Our team of dedicated agents boasts vast industry knowledge, ensuring that you receive the highest level of service. Your satisfaction is our priority, and we're committed to making your real estate experience exceptional.
+              Our team of dedicated agents boasts vast industry knowledge, ensuring that you receive the highest level of service. Your satisfaction is our priority, and we are committed to making your real estate experience exceptional.
             </p>
           </div>
         </div>

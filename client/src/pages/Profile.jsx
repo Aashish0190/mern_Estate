@@ -55,6 +55,7 @@ const handleFileUpload = (file) => {
     },
     (error) => {
       setFileUploadError(true);
+      console.log(error)
     },
     () => {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
@@ -139,6 +140,7 @@ const handleShowListings = async () => {
     setUserListings(data);
   } catch (error) {
     setShowListingsError(true);
+    console.log(error)
   }
 };
 
@@ -203,7 +205,7 @@ const handleShowListings = async () => {
         >
           Delete account
         </span>
-        <span onClick={handleSignout} className='text-red-700'>Sign out</span>
+        <span onClick={handleSignout} className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>

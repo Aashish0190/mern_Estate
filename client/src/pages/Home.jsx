@@ -58,7 +58,7 @@ export default function Home() {
           Right Here
         </h1>
         <div className='text-gray-500 text-sm lg:text-lg'>
-          Explore our wide range of properties. Whether you're looking to rent or buy, we've got you covered with exclusive offers and incredible deals.
+          Explore our wide range of properties. Whether you are  looking to rent or buy, we have got you covered with exclusive offers and incredible deals.
         </div>
         <Link
           to={'/search'}

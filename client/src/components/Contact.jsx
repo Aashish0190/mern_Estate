@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+
 
 export default function Contact({ listing }) {
   const [landlord, setLandlord] = useState(null);
@@ -53,10 +53,3 @@ export default function Contact({ listing }) {
   );
 }
 
-// Add prop types validation
-Contact.propTypes = {
-  listing: PropTypes.shape({
-    userRef: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
-};
